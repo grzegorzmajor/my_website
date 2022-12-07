@@ -1,0 +1,20 @@
+{
+    "name": "portalmajora/portalmajora",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Major"
+        }
+    ],
+    "require": {
+		"php": ">=8.1"
+	},
+    "scripts": {
+        "server": "php -S localhost:8080 -t public"
+    }
+}

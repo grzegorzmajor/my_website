@@ -1,0 +1,11 @@
+.uc {
+    width: 80%;
+    padding:60px;
+    display:block;
+    margin: auto;
+}
+@media (max-width: 640px) {
+    .uc {
+        width: 100%;
+    }    
+}

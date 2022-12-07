@@ -1,0 +1,292 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --bgPrimaryColor:rgb(55, 55, 65);  
+    --fontPrimaryColor:rgb(252, 215, 174);
+    --iconHoverColor:rgb(224, 135, 99);
+
+    --linkFontPrimaryColor:rgb(255, 212, 176);
+    --linkBgPrimaryColor:rgb(93, 129, 7);
+    
+    --linkHoverFontColor:rgb(255, 212, 176);
+    --linkHoverBgColor:rgb(147, 175, 83);
+    
+    --bgSecondColor:rgb(90, 79, 60); 
+    --borderColor:rgb(43, 38, 31);
+    
+    --h2BgPrimaryColor: rgb(43, 38, 31);
+    --h2FontPrimaryColor: rgb(207, 152, 0);
+
+    --h1FontColor:rgb(255, 212, 176);
+    --h1BgColor:rgb(7, 129, 99);
+
+    --h1PrtfBgColor:rgb(7, 115, 129);
+    --h1PrtfFontColor:rgb(253, 184, 128);
+}
+.header-img {
+    height: 180px;
+    overflow: hidden;
+    position: relative;     
+}
+
+.header-img :first-child { 
+    display: block;    
+    width: 100%;  
+    min-height: 180px;
+    left:50%;
+    transform: translateX(-50%);  
+    position:absolute;    
+    top: 0;       
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    mask-size: 100% 180px;
+    mask-repeat: no-repeat;
+    mask-position: left top, left bottom;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    -webkit-mask-size: 100% 180px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: left top, left bottom;    
+}
+
+.header-img p{
+    display: block;
+    color:black;
+    opacity: 1;
+    z-index: 1;
+    position:relative;
+    font-weight: 700;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:var(--bgPrimaryColor);
+    color:var(--fontPrimaryColor);
+    font-size: 22px;
+   
+}
+
+@media (max-width: 720px) {
+    html {
+        font-size: 18px;
+    }
+}
+@media (max-width: 640px) {
+    
+    .header-img img{                  
+        width:auto;
+        height:190px;
+    }
+    html {
+        font-size: 16px;
+    }
+}
+@media (max-width: 500px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+
+/* ---------------------------- */
+/* menu */
+/* ---------------------------- */
+
+.nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav li{
+    flex-grow: 1;
+    text-align: center;
+    padding-left:2px;
+    padding-right: 2px;
+    text-transform: uppercase;    
+}
+.link {
+    color:var(--linkFontPrimaryColor);
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: block;
+    transition: 0.1s;
+    background-color:var(--linkBgPrimaryColor);
+    padding: 10px;
+    text-decoration: none;
+    min-height: 100%;
+}
+
+.link:hover {
+    color:var(--linkHoverFontColor);
+    background-color:var(--linkHoverBgColor);
+    animation-name: animacjaHover; /* nazwa animacji, którą definiujemy poniżej */
+    animation-duration: 0.25s; /* dlugosc animacji - podobnie jak w transition */
+    animation-delay: 0s; /* ** - poczatkowe opóźnienie animacji - domyślnie 0s */
+    animation-iteration-count: 200; /* ** - liczba powtórzeń - konkretna liczba lub infinite, domyślnie 1 */
+    animation-direction: normal; /* ** - kierunek animacji - alternate, normal. Domyślnie jest normal. Alternate grane jest od początku do końca, a potem od końca do przodu. */
+    animation-timing-function: linear; /* ** - sposób animacji - ease, ease-in, ease-out, ease-in-out, linear, steps(4), frames(10) */
+    /* animation-fill-mode: forwards; /* ** - po skonczeniu animacji zaaplikuj style z danego kierunku - forwards, backwards, both, none */
+
+    
+}
+
+@media (max-width: 800px) {
+    .link {
+        font-size:1.2rem;
+        padding:8px;
+    }
+}
+
+@media (max-width: 640px) {
+    .link {
+        font-size:1.1rem;   
+        padding:5px;
+    }
+}
+@media (max-width: 500px) {
+    .link {
+        font-size:1.05rem;    
+        padding:5px;
+    }
+}
+
+
+/* .active {
+    background-color:rgb(30, 30, 46);
+    animation-name: zanikanieTla; 
+    animation-duration: 1.5s; 
+    animation-delay: 0.3s; 
+    animation-iteration-count: 2000; 
+    animation-direction: alternate; 
+}
+.active:hover {
+    color:rgb(245, 140, 108);
+    background-color:rgb(30, 30, 46);
+    animation-name: zanikanieTla; 
+    animation-duration: 1.5s; 
+    animation-delay: 0.3s; 
+    animation-iteration-count: 2000;
+    animation-direction: alternate;
+    animation-timing-function: ease-out;
+} */
+
+/* ---------------------------- */
+/* other */
+/* ---------------------------- */
+
+.material-symbols-outlined {
+    color:var(--fontPrimaryColor);    
+    transition: 0.5s;
+}
+.material-symbols-outlined:hover {
+    color:var(--iconHoverColor);    
+}
+
+footer {
+    display:block;
+    width: 100%;
+    text-align: center;    
+    background-color:rgb(30, 30, 46);
+    padding: 10px;
+}
+footer a {
+    text-decoration: none;
+    color:rgb(245, 116, 30);
+    animation: footerAnim 5s 0s infinite linear;
+}
+@media (max-width: 640px) {
+    .article {
+        padding:20px;
+        line-height: 1.2;
+        width: 100%;
+    }
+    .article-main{
+        width: 100%;
+        font-size: 1.3rem;
+    }
+    
+}
+
+/* ---------------------------- */
+/* ANIMACJA */
+/* ---------------------------- */
+
+
+@keyframes animacjaHover {
+    0% {
+        transform: translate(-1%,-1%);  
+    }
+    15% {
+        transform: translate(+1%,+4%);  
+    }
+    30% {
+        transform: translate(-0%,-2%);  
+    }
+    40% {
+        transform: translate(+2%,-2%);  
+    }
+    55% {
+        transform: translate(-2%,+1%);  
+    }
+    70% {
+        transform: translate(+2%,+2%);  
+    }
+    90% {
+        transform: translate(+1%,-4%);  
+    }
+    100% {
+        transform: translate(-1%,-1%);  
+    }
+
+}
+
+@keyframes zanikanieTla {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes zanikanieTla2 {
+    0% {
+        opacity: 0.35;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes footerAnim {
+    0% {
+        color:rgb(245, 116, 30);
+        font-size: 0.8rem;
+    }
+    47% {
+        color:rgb(245, 116, 30);
+        font-size: 0.8rem;
+    }
+    50% {
+        color:rgb(255, 252, 82);
+        font-size: 0.9rem;
+    }
+    53% {
+        color:rgb(245, 116, 30);
+        font-size: 0.8rem;        
+    }
+    56% {
+        color:rgb(255, 252, 82);
+        font-size: 0.9rem;
+    }
+    59% {
+        color:rgb(245, 116, 30);
+        font-size: 0.8rem;
+    }
+    100%{
+        color:rgb(245, 116, 30);
+        font-size: 0.8rem;
+    }
+}
+
