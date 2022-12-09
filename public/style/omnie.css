@@ -14,7 +14,6 @@ h1 {
     animation-direction: normal; /* ** - kierunek animacji - alternate, normal. Domyślnie jest normal. Alternate grane jest od początku do końca, a potem od końca do przodu. */
     animation-timing-function: linear; /* ** - sposób animacji - ease, ease-in, ease-out, ease-in-out, linear, steps(4), frames(10) */
     /* animation-fill-mode: forwards; /* ** - po skonczeniu animacji zaaplikuj style z danego kierunku - forwards, backwards, both, none */
-
 }
 
 h2 {    
@@ -26,7 +25,6 @@ h2 {
     font-size: 1rem;
     color:var(--h2FontPrimaryColor);
 }
-
 section.aboutMeLeft {
     padding-top: 20px;
     width:39%;  
@@ -36,7 +34,6 @@ section.aboutMeRight {
     padding-top: 20px;
     width:60%;      
 }
-
 .aboutMeLeft a {
     display:inline-block;
     text-decoration: none;
@@ -46,7 +43,6 @@ img.aboutMe{
     width:100%;
     
 }
-
 p {
     text-align: justify;
     word-wrap: break-word;
@@ -55,7 +51,6 @@ p {
     margin-bottom: 10px;
     padding: 0px 5px;
 }
-
 .article-list {
     display: flex;
     flex-wrap: wrap;
@@ -132,8 +127,7 @@ article.aboutMeRight div {
     94% {
         background-image: none;
     }
-    95% {
-        
+    95% {     
         background-image: linear-gradient(to right, transparent 90%, var(--linkHoverBgColor) 100% );
     }
     95.5% {

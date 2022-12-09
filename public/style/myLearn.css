@@ -1,0 +1,60 @@
+.myLearn {
+    display: flex;
+    flex-direction: column;
+    
+    width:100vw;
+    height:calc(100vh - 50px);
+    align-items: stretch;
+    align-content: stretch;    
+    background-color: antiquewhite;    
+}
+.myLearn section {
+    flex-basis: 20%;
+    max-height: 20%;
+    width:100vw;
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-color: aquamarine;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: stretch;   
+    justify-content: space-around; 
+    overflow-y: auto;
+}
+.myLearn iframe {
+    width:100vw;
+    flex-grow: 1;
+    background-color:darkgrey;
+}
+.myLearn section div {
+    background-color:black;
+    height:30px;
+    width:100px;    
+    max-width: 100px;
+    text-align: center;
+    line-height: 30px;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+.myLearn section div a {
+    display:block;
+    width:100%;
+    height:100%;
+    color:azure;
+}
+
+
+.myLearn section div:hover {
+    background-color:rgb(65, 57, 57);
+    
+}
+
+header { 
+    display:none;
+}
+footer {
+    height: 50px;
+}

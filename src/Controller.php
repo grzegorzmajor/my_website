@@ -37,6 +37,9 @@ class Controller {
     private function prtf():void{
         $this->view->render('prtf',['portfolio'=>$this->prtfDB->getPrtf()]);
     }
+    private function myLearning():void {
+        $this->view->render('myLearning');        
+    }
     private function linki():void{
         header('Location: /?action=uc');
         exit;
