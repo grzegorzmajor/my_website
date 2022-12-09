@@ -16,7 +16,8 @@ class loginDB extends SQLite3  {
     private function queryDB(string $login,string $pass):bool  {
         $query= "SELECT pass,enc FROM USERS WHERE login='$login';";
         $result=$this->query($query);
-        if (!$result) return false; else {
+
+        if ((!$result) || ($login=="") || ($pass=="")) return false; else {
             $array=$result->fetchArray();
             if ($array['enc']==1) {
                 //tutaj jest miejsce mna hashowane hasla w przyszlosci 
