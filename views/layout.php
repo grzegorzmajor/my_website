@@ -13,7 +13,7 @@
         if($this->action=="indx") echo '<link rel="stylesheet" href=".\style\omnie.css">';
         if($this->action=="prtf") echo '<link rel="stylesheet" href=".\style\prtf.css">';    
         if($this->action=="linki") echo '<link rel="stylesheet" href=".\style\cv.css">';  
-        if($this->action=="login" || $this->action=="editPrtf" ) echo '<link rel="stylesheet" href=".\style\login.css"><link rel="stylesheet" href=".\style\adm.css">';
+        if($this->action=="login" || $this->action=="editPrtf" || $this->action=="editAboutMe" ) echo '<link rel="stylesheet" href=".\style\login.css"><link rel="stylesheet" href=".\style\adm.css">';
         if($this->action=="uc") echo '<link rel="stylesheet" href=".\style\uc.css">';
         if($this->action=="myLearning") echo '<link rel="stylesheet" href=".\style\myLearn.css">';  
 ?>

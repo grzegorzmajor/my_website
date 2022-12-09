@@ -113,6 +113,21 @@ class Controller {
         }
     }
 
+    private function updateAboutMe():void {
+        if (!isset($_SESSION)) session_start();
+        if ( isset($_SESSION["login"]) ) {
+            if ($this->request->isPost()) {                            
+                $data=$this->request->postData();
+                $desc=str_replace('"','""',$data["description"]);
+                $id=$this->request->ID();
+                $this->prtfDB->updateAboutMe($id,$data["title"],$desc,$data["poz"]);
+                header('Location: /?action=indx');
+                exit; 
+            }               
+        // $this->view->render('panel');
+        }
+    }
+
     private function addAboutMe():void{
         if (!isset($_SESSION)) session_start();
         if ( isset($_SESSION["login"]) ) {
@@ -132,6 +147,12 @@ class Controller {
                                         'descr'=>$this->prtfDB->getRowDescriptionPrtf($editId),
                                         'imagePath'=>$this->prtfDB->getRowImagePathPrtf($editId),
                                         'projPath'=>$this->prtfDB->getRowProjPathPrtf($editId)]);
+    }
+    private function editAboutMe():void {
+        $editId = $this->request->id();
+        $this->view->render('editAboutMe',['title'=>$this->prtfDB->getRowTitleAboutMe($editId),
+                                        'descr'=>$this->prtfDB->getRowDescriptionAboutMe($editId),
+                                        'poz'=>$this->prtfDB->getRowPozAboutMe($editId)]);
     }
 
     private function uc():void{

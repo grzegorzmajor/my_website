@@ -28,9 +28,33 @@ class dataBase extends SQLite3  {
         // echo $sqlInsert;
         $ret = $this->query($sqlInsert);
     }
+    public function updateAboutMe($id, $title, $descr, $poz):void{
+        $sqlInsert = 'UPDATE ABOUTME SET Title = '."'".$title."'".',Descr = '."'".$descr."'".',Poz = '."'".$poz."' WHERE Id = $id ;";
+        print_r($sqlInsert);
+        $this->query($sqlInsert);
+    }
+
     public function delAboutMe($id):void{
         $sqlDelete = "DELETE FROM ABOUTME WHERE Id=".$id.";";
         $this->query($sqlDelete);
+    }
+    public function getRowTitleAboutMe($id):string {
+        if (!isset($_SESSION)) session_start();
+        $ret = $this->query("SELECT Title FROM ABOUTME WHERE Id=$id;");
+        $row=$ret->fetchArray(SQLITE3_ASSOC);
+        return $row['Title'];
+    }
+    public function getRowDescriptionAboutMe($id):string {
+        if (!isset($_SESSION)) session_start();
+        $ret = $this->query("SELECT Descr FROM ABOUTME WHERE Id=$id;");
+        $row=$ret->fetchArray(SQLITE3_ASSOC);
+        return $row['Descr'];
+    }
+    public function getRowPozAboutMe($id):int {
+        if (!isset($_SESSION)) session_start();
+        $ret = $this->query("SELECT Poz FROM ABOUTME WHERE Id=$id;");
+        $row=$ret->fetchArray(SQLITE3_ASSOC);
+        return $row['Poz'];
     }
     
     public function getAboutMeLeft():string {
@@ -48,8 +72,8 @@ class dataBase extends SQLite3  {
                 }
                 $kod=$kod.'</h2><div class="aboutMe-div">'."\n";
                 $kod=$kod.'<p class="aboutMe-p">'."\n";
-                str_replace('""','"',$row['Descr']);  
-                $kod=$kod.$row['Descr']."</p></div>\n";
+                // str_replace('""','"',$row['Descr']);  
+                $kod=$kod.str_replace('""','"',$row['Descr'])."</p></div>\n";
                 $kod=$kod."</article>\n";
             }
         }
@@ -70,8 +94,8 @@ class dataBase extends SQLite3  {
                 }
                 $kod=$kod.'</h2><div class="aboutMe-div">'."\n";
                 $kod=$kod.'<p class="aboutMe-p">'."\n";
-                str_replace('""','"',$row['Descr']);  
-                $kod=$kod.$row['Descr']."</p></div>\n";
+                // str_replace('""','"',$row['Descr']);  
+                $kod=$kod.str_replace('""','"',$row['Descr'])."</p></div>\n";
                 $kod=$kod."</article>\n";
             }
         }
@@ -164,8 +188,8 @@ class dataBase extends SQLite3  {
             $kod=$kod.'</h2><div class="article-div">'."\n";
             if ($row['ImagePath']!="") $kod=$kod.'<img class="article-image" src="'.$row['ImagePath'].'" alt="">';
             $kod=$kod.'<p class="article-p">'."\n";
-            str_replace('""','"',$row['Descr']);            
-            $kod=$kod.$row['Descr']."</p>";
+            // str_replace('""','"',$row['Descr']);            
+            $kod=$kod.str_replace('""','"',$row['Descr'])."</p>";
             if ($row['ProjPath']!="") $kod=$kod."<a href=".'"'.$row['ProjPath'].'"'.">".$row['ProjPath']."</a>";
             $kod=$kod."</div>\n";
             //$row['ProjPath'] - ew adres do projektu 
