@@ -176,7 +176,7 @@ class dataBase extends SQLite3  {
     public function updateFotoPrtf($id, $fotoPath):void{
         $sqlPath = "SELECT ImagePath FROM PORTFOLIO WHERE Id=".$id.";";
         $path = $this->query($sqlPath);
-        $array = $path->fetchArray();
+        $array = $path->fetchArray(SQLITE3_ASSOC);
         //print_r($array['ImagePath']);
         if ($array['ImagePath']!="") unlink($array['ImagePath']);        
         $sqlInsert = 'UPDATE PORTFOLIO SET ImagePath = '.'"'.$fotoPath.'"'." WHERE Id = $id ;";
@@ -197,7 +197,7 @@ class dataBase extends SQLite3  {
     public function delPrtf($id):void{
         $sqlPath = "SELECT ImagePath FROM PORTFOLIO WHERE Id=".$id.";";
         $path = $this->query($sqlPath);
-        $array = $path->fetchArray();
+        $array = $path->fetchArray(SQLITE3_ASSOC);
         //print_r($array['ImagePath']);
         if ($array['ImagePath']!="") unlink($array['ImagePath']);
         $sqlDelete = "DELETE FROM PORTFOLIO WHERE Id=".$id.";";

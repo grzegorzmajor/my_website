@@ -16,17 +16,30 @@ class loginDB extends SQLite3  {
     private function queryDB(string $login,string $pass):bool  {
         $query= "SELECT pass,enc FROM USERS WHERE login='$login';";
         $result=$this->query($query);
-
-        if ((!$result) || ($login=="") || ($pass=="")) return false; else {
-            $array=$result->fetchArray();
-            if ($array['enc']==1) {
-                //tutaj jest miejsce mna hashowane hasla w przyszlosci 
+        $array=$result->fetchArray(SQLITE3_ASSOC);
+        // print_r($result); echo "|\n";
+        // print_r(gettype($result)); echo "|\n";
+        
+        // print_r($result->fetchArray()); echo "|\n";
+        // echo "|\n";
+        // print_r($array);
+        if (($pass=="")) {
+            return false; 
+            exit;
+        } else {
+            if (!$array) {
+                return false;
+                exit;
             } else {
-                if (!$result) { return false; } else {
-                    if ($array['pass']==$pass) return true; else return false; 
+                if ($array['enc']==1) {
+                    //tutaj jest miejsce mna hashowane hasla w przyszlosci 
+                } else {
+                    if (!$result) { return false; } else {
+                        if ($array['pass']==$pass) return true; else return false; 
+                    }
                 }
-            }
 
+            }
         }
         return false;
     }
