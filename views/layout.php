@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/png" href="\images\favicon.png" sizes="16x16" />
     <title>Major Grzegorz</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href=".\style\style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+    
 <?php
         if($this->action=="indx") echo '<link rel="stylesheet" href=".\style\omnie.css">';
         if($this->action=="prtf") echo '<link rel="stylesheet" href=".\style\prtf.css">';    
@@ -31,8 +32,9 @@
                     if($this->action!="indx") echo '<li><a class="link" href="/">O Mnie</a></li>';
                     if($this->action!="prtf") echo '<li><a class="link" href="/?action=prtf">Portfolio</a></li>';
                     if($this->action!="linki") echo '<li><a class="link" href="/?action=linki">Po godzinach</a></li>';
-                    if($this->action!="login") echo '<li><a class="link" href="/?action=login">Panel</a></li>';
+                    if($this->action!="login") echo '<li class="panel"><a class="link" href="/?action=login"><span class="material-symbols-outlined">settings</span></a></li>';
 ?>
+
             </ul>
         </nav>
     </header>
