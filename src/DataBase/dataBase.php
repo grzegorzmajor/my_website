@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\DataBase;
 
-use SQLite3;
+
 use App\DataBase\dataFile;
 
 
